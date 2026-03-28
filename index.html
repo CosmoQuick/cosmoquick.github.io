@@ -3,24 +3,409 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <title>CosmoQuick</title>
+    <meta name="description" content="CosmoQuick — Future of hiring" />
+    <meta name="author" content="CosmoQuick" />
+    <meta property="og:title" content="CosmoQuick" />
+    <meta property="og:description" content="AI-powered ecosystem for the future of hiring." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
+    <meta property="og:image" content="https://cosmoquick.com/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:site" content="@cosmoquickhq" />
+    <meta name="twitter:image" content="https://cosmoquick.com/og-image.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "hsl(220 20% 7%)",
+              foreground: "hsl(45 20% 90%)",
+              card: "hsl(220 18% 11%)",
+              "card-foreground": "hsl(45 20% 90%)",
+              popover: "hsl(220 18% 11%)",
+              "popover-foreground": "hsl(45 20% 90%)",
+              primary: "hsl(168 80% 50%)",
+              "primary-foreground": "hsl(220 20% 7%)",
+              secondary: "hsl(220 15% 16%)",
+              "secondary-foreground": "hsl(45 20% 90%)",
+              muted: "hsl(220 15% 16%)",
+              "muted-foreground": "hsl(220 10% 55%)",
+              accent: "hsl(35 90% 60%)",
+              "accent-foreground": "hsl(220 20% 7%)",
+              destructive: "hsl(0 84.2% 60.2%)",
+              "destructive-foreground": "hsl(210 40% 98%)",
+              border: "hsl(220 15% 18%)",
+              input: "hsl(220 15% 18%)",
+              ring: "hsl(168 80% 50%)",
+            },
+            fontFamily: {
+              sans: ["Space Grotesk", "system-ui", "sans-serif"],
+              mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+            },
+            borderRadius: {
+              lg: "var(--radius)",
+              md: "calc(var(--radius) - 2px)",
+              sm: "calc(var(--radius) - 4px)",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        color-scheme: dark;
+        --radius: 0.75rem;
+      }
+
+      body {
+        background-color: hsl(220 20% 7%);
+        color: hsl(45 20% 90%);
+        font-family: "Space Grotesk", system-ui, sans-serif;
+      }
+
+      * {
+        border-color: hsl(220 15% 18%);
+      }
+
+      .text-gradient-hero {
+        background: linear-gradient(135deg, hsl(168 80% 50%), hsl(35 90% 60%), hsl(168 80% 50%));
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradient-shift 4s ease infinite;
+      }
+
+      .glow-teal {
+        box-shadow: 0 0 30px hsl(168 80% 50% / 0.15), 0 0 60px hsl(168 80% 50% / 0.05);
+      }
+
+      .glow-teal-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .glow-teal-hover:hover {
+        box-shadow: 0 0 20px hsl(168 80% 50% / 0.2), 0 0 40px hsl(168 80% 50% / 0.08);
+        transform: translateY(-2px);
+      }
+
+      .card-shine {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-shine::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, hsl(168 80% 50% / 0.04), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .card-shine:hover::before {
+        left: 100%;
+      }
+
+      @keyframes gradient-shift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-20px) rotate(3deg);
+        }
+      }
+
+      @keyframes float-delayed {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-15px) rotate(-2deg);
+        }
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+
+        50% {
+          opacity: 0.6;
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes slide-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes orbit {
+        from {
+          transform: rotate(0deg) translateX(120px) rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg) translateX(120px) rotate(-360deg);
+        }
+      }
+
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .animate-float-delayed {
+        animation: float-delayed 7s ease-in-out infinite 1s;
+      }
+
+      .animate-pulse-glow {
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+
+      .animate-slide-up {
+        animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .animate-orbit {
+        animation: orbit 20s linear infinite;
+      }
+
+      .animate-spin-slow {
+        animation: spin-slow 30s linear infinite;
+      }
+    </style>
   </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="min-h-screen bg-background text-foreground overflow-hidden relative">
+    <div class="fixed inset-0 pointer-events-none">
+      <div class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[120px] animate-pulse-glow"></div>
+      <div
+        class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-accent/[0.03] blur-[100px] animate-pulse-glow"
+        style="animation-delay: 1.5s"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-border/30 animate-spin-slow opacity-20"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-primary/10 animate-spin-slow opacity-15"
+        style="animation-direction: reverse; animation-duration: 45s"
+      ></div>
+    </div>
+
+    <main class="relative z-10 max-w-2xl mx-auto px-5 py-12 space-y-8">
+      <a href="https://cosmoquick.com" target="_blank" rel="noopener noreferrer" class="animate-slide-up block group">
+        <div class="relative rounded-2xl border border-primary/30 bg-card p-5 glow-teal glow-teal-hover card-shine">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-1">Visit us</p>
+              <p class="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">cosmoquick.com</p>
+            </div>
+            <i data-lucide="external-link" class="w-5 h-5 text-primary opacity-60 group-hover:opacity-100 transition-opacity"></i>
+          </div>
+        </div>
+      </a>
+
+      <section
+        class="animate-slide-up relative rounded-2xl border border-border bg-card p-8 md:p-12 overflow-hidden"
+        style="animation-delay: 0.1s"
+      >
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="animate-orbit" style="animation-duration: 18s">
+            <div class="w-3 h-3 rounded-full bg-primary/40"></div>
+          </div>
+          <div class="animate-orbit" style="animation-duration: 25s; animation-delay: -8s">
+            <div class="w-2 h-2 rounded-full bg-accent/40"></div>
+          </div>
+          <div class="animate-orbit" style="animation-duration: 32s; animation-delay: -15s">
+            <div class="w-1.5 h-1.5 rounded-full bg-primary/30"></div>
+          </div>
+        </div>
+
+        <div class="absolute top-6 right-8 animate-float">
+          <div
+            class="w-12 h-12 border-2 border-primary/30 rounded-lg"
+            style="transform: perspective(200px) rotateX(20deg) rotateY(-25deg)"
+          ></div>
+        </div>
+        <div class="absolute bottom-6 left-8 animate-float-delayed">
+          <div class="w-8 h-8 bg-accent/20 rounded-full" style="transform: perspective(200px) rotateX(-15deg)"></div>
+        </div>
+        <div class="absolute top-1/2 right-12 animate-float" style="animation-delay: 2s">
+          <div class="w-6 h-6 border border-accent/20 rotate-45"></div>
+        </div>
+
+        <div class="relative text-center space-y-4">
+          <p class="text-xs font-mono text-muted-foreground tracking-[0.3em] uppercase">Redefining</p>
+          <h1
+            class="text-5xl md:text-7xl font-bold text-gradient-hero leading-tight tracking-tight"
+            style="text-shadow: 0 0 80px hsl(168 80% 50% / 0.15); transform: perspective(800px) rotateX(2deg)"
+          >
+            Future of
+            <br />
+            Hiring
+          </h1>
+          <p class="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+            An entire ecosystem of AI-powered hiring tools, platforms, and products — all under one roof.
+          </p>
+        </div>
+      </section>
+
+      <section class="space-y-3">
+        <p
+          class="animate-slide-up text-[10px] font-mono text-muted-foreground tracking-[0.3em] uppercase pl-1"
+          style="animation-delay: 0.2s"
+        >
+          Connect
+        </p>
+        <div id="social-links" class="grid grid-cols-2 sm:grid-cols-5 gap-2"></div>
+      </section>
+
+      <section class="space-y-4">
+        <div class="animate-slide-up flex items-center gap-3 pl-1" style="animation-delay: 0.5s">
+          <p class="text-[10px] font-mono text-muted-foreground tracking-[0.3em] uppercase">Ecosystem</p>
+          <div class="flex-1 h-px bg-border"></div>
+          <span class="text-[10px] font-mono text-primary"><span id="product-count"></span> products</span>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+      </section>
+
+      <footer class="animate-slide-up text-center pt-6 pb-4 space-y-2" style="animation-delay: 1.2s">
+        <div class="w-8 h-px bg-primary/30 mx-auto"></div>
+        <p class="text-[10px] font-mono text-muted-foreground tracking-widest">
+          © <span id="current-year"></span> COSMOQUICK
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      const SOCIAL_LINKS = [
+        { label: "X (Twitter)", handle: "@cosmoquickhq", url: "https://x.com/cosmoquickhq", icon: "𝕏" },
+        { label: "LinkedIn", handle: "CosmoQuick", url: "https://www.linkedin.com/company/cosmoquick", icon: "in" },
+        { label: "Facebook", handle: "cosmoquickhq", url: "https://facebook.com/cosmoquickhq", icon: "f" },
+        { label: "Medium", handle: "@cosmoquick", url: "https://medium.com/@cosmoquick", icon: "M" },
+        { label: "Instagram", handle: "cosmoquickhq", url: "https://instagram.com/cosmoquickhq", icon: "📸" },
+      ];
+
+      const PRODUCTS = [
+        { name: "Instant Hiring", desc: "Hire in minutes, not months", icon: "briefcase", accent: "primary" },
+        { name: "Recruiter OS", desc: "Command center for recruiters", icon: "users", accent: "accent" },
+        { name: "Tools Suite", desc: "20+ AI-powered tools", icon: "wrench", accent: "primary" },
+        { name: "Live", desc: "Real-time hiring events", icon: "radio", accent: "accent" },
+        { name: "Screen", desc: "AI-powered screening", icon: "monitor", accent: "primary" },
+        { name: "HRM SaaS", desc: "End-to-end HR management", icon: "building", accent: "accent" },
+        { name: "Remote Job Board", desc: "Global remote opportunities", icon: "search", accent: "primary" },
+        { name: "Freelance Platform", desc: "Connect with top freelancers", icon: "user-check", accent: "accent" },
+        { name: "CosmoQuick Learn", desc: "600+ courses", icon: "graduation-cap", accent: "primary" },
+        { name: "Auto-Apply Extension", desc: "Chrome extension for auto-apply", icon: "chrome", accent: "accent" },
+        { name: "Candidate Import", desc: "Recruiter import extension", icon: "chrome", accent: "primary" },
+        { name: "Mobile App", desc: "Hiring on the go", icon: "smartphone", accent: "accent" },
+        { name: "Mira AI Agent", desc: "Your AI hiring assistant", icon: "bot", accent: "primary" },
+        { name: "Founders & Hires", desc: "Media division", icon: "newspaper", accent: "accent", url: "https://foundersandhires.co" },
+        { name: "Infoproducts", desc: "Digital products & guides", icon: "graduation-cap", accent: "primary", url: "https://cosmoquick.gumroad.com" },
+        { name: "CSQK Token", desc: "Utility token ecosystem", icon: "coins", accent: "accent" },
+        { name: "X-Ray Search", desc: "700M+ database, plain English", icon: "database", accent: "primary" },
+        { name: "Job Aggregator", desc: "1M+ listings from multiple ATS & APIs", icon: "search", accent: "accent" },
+      ];
+
+      const socialContainer = document.getElementById("social-links");
+      const productContainer = document.getElementById("product-grid");
+
+      document.getElementById("product-count").textContent = PRODUCTS.length;
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+
+      socialContainer.innerHTML = SOCIAL_LINKS.map((link, i) => `
+        <a
+          href="${link.url}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="animate-slide-up group rounded-xl border border-border bg-card p-3 text-center glow-teal-hover card-shine"
+          style="animation-delay: ${0.25 + i * 0.05}s"
+        >
+          <span class="block text-lg mb-1 grayscale group-hover:grayscale-0 transition-all">${link.icon}</span>
+          <span class="block text-[10px] font-mono text-muted-foreground group-hover:text-foreground transition-colors">${link.label}</span>
+        </a>
+      `).join("");
+
+      productContainer.innerHTML = PRODUCTS.map((product, i) => {
+        const isAccent = product.accent === "accent";
+        const wrapper = product.url ? "a" : "div";
+        const hrefAttrs = product.url ? `href="${product.url}" target="_blank" rel="noopener noreferrer"` : "";
+        const external = product.url ? '<i data-lucide="external-link" class="w-3 h-3 opacity-40"></i>' : "";
+        const pillClass = isAccent ? "bg-accent/10" : "bg-primary/10";
+        const iconColor = isAccent ? "text-accent" : "text-primary";
+        const cursorClass = product.url ? "" : "cursor-default";
+        const delay = 0.55 + i * 0.03;
+
+        return `<${wrapper}
+          ${hrefAttrs}
+          class="animate-slide-up group rounded-xl border border-border bg-card p-3.5 glow-teal-hover card-shine flex items-start gap-3 ${cursorClass}"
+          style="animation-delay: ${delay}s"
+        >
+          <div class="mt-0.5 p-1.5 rounded-lg ${pillClass}">
+            <i data-lucide="${product.icon}" class="w-4 h-4 ${iconColor}"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-medium text-foreground group-hover:text-primary transition-colors truncate flex items-center gap-1.5">
+              ${product.name}
+              ${external}
+            </p>
+            <p class="text-[11px] text-muted-foreground truncate">${product.desc}</p>
+          </div>
+        </${wrapper}>`;
+      }).join("");
+
+      lucide.createIcons();
+    </script>
   </body>
 </html>
